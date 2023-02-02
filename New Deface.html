@@ -1,0 +1,325 @@
+
+
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>HaCkeD by Sw4pn3 ~ Team Lord Mundi</title>
+    <meta name="description" content="Team Mundi WAS HERE BABY">
+	<link rel="icon" type="image/png" href="https://c.top4top.io/p_2589xl3181.jpeg" type="image/x-icon" />
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+	<style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: black;
+            color: white;
+            font-family: monospace;
+            user-select: none;
+            -ms-overflow-style: none; /* for Internet Explorer, Edge */
+            scrollbar-width: none; /* for Firefox */
+        }
+        body::-webkit-scrollbar {
+          display: none; /* for Chrome, Safari, and Opera */
+        }
+        * { margin: 0; padding: 0; }
+        .bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: -1;
+        }
+        .bg video {
+            width: 90%;
+            object-fit: cover;
+        }
+        .box-start {
+            width: 100%;
+            height: 100vh;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background: rgba(0,0,0,.8);
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+        }
+        .box-start * {
+            text-align: center;
+        }
+        .icon img {
+            width: 200px;
+        }
+        .header {
+            font-size: 30px;
+            color: orange;
+            font-weight: bold;
+            text-shadow: 1px 0 4px rgba(0,0,0,.5);
+        }
+        .footer {
+            font-size: 30px;
+            color: lime;
+            font-weight: bold;
+            text-shadow: 1px 0 4px rgba(0,0,0,.5);
+        }
+        .desc {
+            padding: 10px;
+            width: 400px;
+        }
+        .box-end {
+            width: 100%;
+            height: 100vh;
+            background: rgba(0,0,0,.8);
+            padding-top: 20px;
+            opacity: 0;
+            visibility: hidden;
+            display: none;
+        }
+        .mod-box {
+            width: 90%;
+            margin: 0 auto;
+            background: rgba(255,255,255,.2);
+            backdrop-filter: blur(40px);
+            padding: 10px;
+            border-radius: 10px;
+            min-height: 60vh;
+        }
+        .box-start.active, .box-end.active {
+            opacity: 1;
+            visibility: visible;
+            display: block;
+            transition: 1s;
+        }
+        .ret {
+            background: black;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100vh;
+            transition: .2s;
+        }
+        .ret.active {
+            display: none;
+        }
+        .ret button {
+            font-size: 20px;
+            padding: 10px;
+            background: rgba(255,255,255,.1)
+            backdrop-filter: blur(10px);
+            border: none;
+            border-radius: 3px;
+        }
+        .ms-box {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            z-index: 1;
+            background: black;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+        }
+        .ms-box.active {
+            display: none;
+        }
+        .mess {
+            background: white;
+            padding: 10px;
+            color: black;
+            width: 400px;
+            height: 300px;
+            position: relative;
+        }
+        .mess-header {
+            background: whitesmoke;
+            border-bottom: 1px solid 111;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+        .mess-header img {
+            width: 30px;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .mess-name {
+            color: dodgerblue;
+            font-weight: bold;
+            font-size: 16px;
+            padding: 0 10px;
+        }
+        .mess-box-s {
+            background: #ccc;
+            padding: 3px 7px;
+            margin: 1px 0;
+            font-size: 16px;
+            border-radius: 5px;
+            display: none;
+            transition: 1s;
+            font-size: 0;
+        }
+        .mess-box-s.active {
+            display: block;
+            font-size: 15px;
+        }
+        .mess-inp {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            background: #ddd;
+            width: calc(100% - 10px);
+            padding: 6px 5px;
+            display: flex;
+        }
+        .mess-inp input {
+            font-size: 16px;
+            width: 90%;
+        }
+        .mess-inp button {
+            border: 1px solid #444;
+            padding: 1px;
+            width: 10%;
+        }
+        .wr {
+            position: absolute;
+            bottom: 40px;
+            width: calc(100% - 20px);
+            background: white;
+            left: 0;
+            padding: 0 10px;
+        }
+        @media (max-width: 760px) {
+            video {
+                width: 100%;
+                height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="ret">
+        <div class="click-box">
+            <button id="next-1">OPEN THE SITE</button>
+        </div>
+    </div>
+    <div class="ms-box">
+        <div class="dev-wiew">
+            <div class="mess">
+                <div class="mess-header">
+                    <img src="https://www.pngitem.com/pimgs/m/524-5246388_anonymous-user-hd-png-download.png">
+                    <div class="mess-name">Admin</div>
+                </div>
+                <div class="mess-box-s" id="m1">Hello Admin</div>
+                <div class="mess-box-s" id="m2">Hello Ladies & Gentle Man</div>
+                <div class="mess-box-s" id="m3">I am Mundi With My Team</div>
+                <div class="mess-box-s" id="m4">An Indian Hacker And Lord Mundi also</div>
+                <div class="mess-box-s" id="m5">From Team Lord Mundi Cyber Force</div>
+                <div class="mess-box-s" id="m6">This is site has been hacked</div>
+                <div class="wr">Admin's Writing...</div>
+                <div class="mess-inp">
+                    <input type="text" disabled="true" placeholder="Write a message...">
+                    <button disabled="">send</button>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="bg">
+        <video loop id="video">
+            <source src="https://f.top4top.io/m_2589gy2nm1.mp4" type="">
+        </video>
+    </div>
+<center>
+    <div class="box-start">
+        <div class="icon"><img src="https://f.top4top.io/p_2589x1jqp1.jpeg"></div>
+        <div class="header">The site has been hacked by Lord Mundi and His team.</div>
+        <div class="desc">Your site data is totally safe.. I was just resting here for a while..</div>
+        <b><div class="div">ॐ Jai Shree Ram ॐ</div></b>
+	<div class="footer">Greetz : Lord Mundi and you.</div>
+    </div>
+</center>
+    </div>
+
+    <audio  loop autoplay="" class="music" style="display: none;">
+      <source src="https://b.top4top.io/m_258946rco1.mp3" type="audio/mpeg">
+      AUDIO
+    </audio>
+	
+	
+	
+
+
+<script>
+    var music = document.querySelector(".music");
+    var next1s = document.getElementById("next-1");
+    var video = document.getElementById("video");
+    var ret = document.querySelector(".ret");
+    var msbox = document.querySelector(".ms-box")
+    var messbox1 =  document.getElementById("m1");
+    var messbox2 =  document.getElementById("m2");
+    var messbox3 =  document.getElementById("m3");
+    var messbox4 =  document.getElementById("m4");
+    var messbox5 =  document.getElementById("m5");
+    var messbox6 =  document.getElementById("m6");
+
+
+    var boxstart = document.querySelector(".box-start");
+    var boxend = document.querySelector(".box-end");
+
+    function nexted() {
+        ret.classList.add("active");
+        music.play();
+        function ms1() { messbox1.classList.add("active") }
+        function ms2() { messbox2.classList.add("active") }
+        function ms3() { messbox3.classList.add("active") }
+        function ms4() { messbox4.classList.add("active") }
+        function ms5() { messbox5.classList.add("active") }
+        function ms6() { messbox6.classList.add("active") }
+        setTimeout(ms1,1000);
+        setTimeout(ms2,5000);
+        setTimeout(ms3,7000);
+        setTimeout(ms4,12000);
+        setTimeout(ms5,15000);
+        setTimeout(ms6,18000);
+        function vdst() {
+            msbox.classList.add("active");
+            video.play();
+        }
+        setTimeout(vdst, 21000);
+        function ados() {
+            boxstart.classList.add("active");
+            boxend.classList.add("active");
+            boxstart.style.display = "flex";
+        }
+        setTimeout(ados, 30000);
+    }
+
+
+    window.addEventListener("keypress", nexted);
+    next1s.addEventListener("click", nexted);
+    
+
+
+</script>
+<script type="text/javascript" src="https://aakashbapna.github.io/jet-planes/doodle.js"></script> 
+<script type="text/javascript"> doodle.init("https://i.hizliresim.com/jofphxw.png"); </script>
+<script>
+var Stats=function(){var e=Date.now(),t=e,i=0,n=1/0,r=0,s=0,o=1/0,a=0,l=0,h=0,c=document.createElement("div");c.id="stats",c.addEventListener("mousedown",function(e){e.preventDefault(),v(++h%2)},!1),c.style.cssText="width:80px;opacity:0.9;cursor:pointer";var u=document.createElement("div");u.id="fps",u.style.cssText="padding:0 0 3px 3px;text-align:left;background-color:#002",c.appendChild(u);var d=document.createElement("div");d.id="fpsText",d.style.cssText="color:#0ff;font-family:Comic Sans MS;font-size:9px;font-weight:bold;line-height:15px",d.innerHTML="FPS",u.appendChild(d);var p=document.createElement("div");for(p.id="fpsGraph",p.style.cssText="position:relative;width:74px;height:30px;background-color:#0ff",u.appendChild(p);74>p.children.length;){var f=document.createElement("span");f.style.cssText="width:1px;height:30px;float:left;background-color:#113",p.appendChild(f)}var m=document.createElement("div");m.id="ms",m.style.cssText="padding:0 0 3px 3px;text-align:left;background-color:#020;display:none",c.appendChild(m);var g=document.createElement("div");g.id="msText",g.style.cssText="color:#0f0;font-family:Comic Sans MS;font-size:9px;font-weight:bold;line-height:15px",g.innerHTML="MS",m.appendChild(g);var y=document.createElement("div");for(y.id="msGraph",y.style.cssText="position:relative;width:74px;height:30px;background-color:#0f0",m.appendChild(y);74>y.children.length;){var f=document.createElement("span");f.style.cssText="width:1px;height:30px;float:left;background-color:#131",y.appendChild(f)}var v=function(e){switch(h=e){case 0:u.style.display="block",m.style.display="none";break;case 1:u.style.display="none",m.style.display="block"}},b=function(e,t){var i=e.appendChild(e.firstChild);i.style.height=t+"px"};return{REVISION:11,domElement:c,setMode:v,begin:function(){e=Date.now()},end:function(){var h=Date.now();return i=h-e,n=Math.min(n,i),r=Math.max(r,i),g.textContent=i+" MS ("+n+"-"+r+")",b(y,Math.min(30,30-30*(i/200))),l++,h>t+1e3&&(s=Math.round(1e3*l/(h-t)),o=Math.min(o,s),a=Math.max(a,s),d.textContent=s+" FPS ("+o+"-"+a+")",b(p,Math.min(30,30-30*(s/100))),t=h,l=0),h},update:function(){e=this.end()}}};
+</script>
+
+<embed src="https://f.top4top.io/m_2519qsfiu1.mp3" type="application/x-shockwave-flash" wmode="transparent" width="1" height="1"></embed>
+</body>
+</html>
